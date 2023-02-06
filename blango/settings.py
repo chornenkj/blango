@@ -53,6 +53,8 @@ class Dev(Configuration):
 
         'crispy_forms',
         'crispy_bootstrap5',
+
+        'debug_toolbar',
         
     ]
 
@@ -60,9 +62,10 @@ class Dev(Configuration):
         'django.middleware.security.SecurityMiddleware',
         'django.contrib.sessions.middleware.SessionMiddleware',
         'django.middleware.common.CommonMiddleware',
-        # 'django.middleware.csrf.CsrfViewMiddleware',
+        'django.middleware.csrf.CsrfViewMiddleware',
         'django.contrib.auth.middleware.AuthenticationMiddleware',
         'django.contrib.messages.middleware.MessageMiddleware',
+        "debug_toolbar.middleware.DebugToolbarMiddleware",
         # 'django.middleware.clickjacking.XFrameOptionsMiddleware',
     ]
 
@@ -187,6 +190,8 @@ class Dev(Configuration):
 
     CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
     CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+    INTERNAL_IPS = ["192.168.11.179"]
 
 
 class Prod(Dev):
